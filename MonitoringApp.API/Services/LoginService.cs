@@ -46,7 +46,7 @@ namespace MonitoringApp.API.Services
 
                     ClaimsIdentity claimsIdentity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
                     claimsIdentity.AddClaim(new Claim(ClaimTypes.Name, req.AccountName));
-                    claimsIdentity.AddClaim(new Claim(ClaimTypes.Sid, user.Id.ToString()));
+                    claimsIdentity.AddClaim(new Claim(ClaimTypes.Sid, user.UserId.ToString()));
 
                     var role = _dbContext.Roles.Find(user.RoleId);
                     if (role != null)

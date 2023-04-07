@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using MonitoringApp.Model.RequestResponseClasses
+@model LoginRequest
+
+<form method="post">
+    <label asp-for="AccountName">Kullancıcı Adi</label>
+    <input asp-for="AccountName" class="form-control" placeholder="Kullancı Adı" />
+    <span asp-validation-for="AccountName"></span>
+
+    <label asp-for="Password">Sifre</label>
+    <input asp-for="Password" class="form-control" placeholder="Sifre" />
+    <span asp-validation-for="Password"></span>
+
+
+    <button type="submit" class="btn btn-success">Giriş</button>
+</form>
+

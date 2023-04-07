@@ -47,6 +47,7 @@ builder.Services.AddAuthentication(x =>
            );
 
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
 
 var app = builder.Build();
 
@@ -56,6 +57,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseAuthentication();
 app.UseAuthorization();

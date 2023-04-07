@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MonitoringApp.API.IServices;
+using MonitoringApp.Model.Entities;
 using MonitoringApp.UI.Models;
 using System.Diagnostics;
 
@@ -7,26 +9,22 @@ namespace MonitoringApp.UI.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IApplicationService _appService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IApplicationService appService)
         {
             _logger = logger;
+            _appService = appService;
         }
 
         public IActionResult Index()
         {
-            return View();
+
+           List<Application> appList= _appService.GetApplications();
+            return View(appList);
         }
 
-        public IActionResult Index2()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+     
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

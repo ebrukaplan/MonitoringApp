@@ -12,7 +12,7 @@ namespace MonitoringApp.Data
     {
         public MonitoringAppDbContext(DbContextOptions<MonitoringAppDbContext> options) : base(options)
         {
-
+          
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -24,23 +24,23 @@ namespace MonitoringApp.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Role>().HasData(
-             new Role { RoleName = "Standart", CreatedDate = DateTime.Now },
-             new Role { RoleName = "Admin", CreatedDate = DateTime.Now }
+             new Role {RoleId=1, RoleName = "Standart", CreatedDate = DateTime.Now },
+             new Role {RoleId=2, RoleName = "Admin", CreatedDate = DateTime.Now }
              );
 
             modelBuilder.Entity<User>().HasData(
                 new User
-                { AccountName = "Ebru", HashPassword = "123", CreatedDate = DateTime.Now, RoleId = 1 },
+                {UserId=1, AccountName = "Ebru", HashPassword = "PuB/hselpQNY0TYpY06RfnYVNjE=", CreatedDate = DateTime.Now, RoleId = 1 },
                 new User
-                { AccountName = "admin", HashPassword = "123", CreatedDate = DateTime.Now, RoleId = 2 }
+                {UserId=2, AccountName = "admin", HashPassword = "PuB/hselpQNY0TYpY06RfnYVNjE=", CreatedDate = DateTime.Now, RoleId = 2 }
                 );
 
             modelBuilder.Entity<IntegrationType>().HasData(
-                new IntegrationType { IntegrationTypeName = "email", CreatedDate = DateTime.Now, IntegrationTypeDescription = "when the app has down, send an email" }
+                new IntegrationType {IntegrationTypeId=1, IntegrationTypeName = "email", CreatedDate = DateTime.Now, IntegrationTypeDescription = "when the app has down, send an email" }
                 );
 
             modelBuilder.Entity<Application>().HasData(
-                new Application { ApplicationName = "Google", ApplicationUrl = "www.google.com", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 30 }
+                new Application {ApplicationId=1, ApplicationName = "Google", ApplicationUrl = "www.google.com", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 30 }
                 );
         }
 

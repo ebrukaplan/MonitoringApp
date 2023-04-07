@@ -1,7 +1,13 @@
+using MonitoringApp.API.IServices;
+using MonitoringApp.UI.ServiceUI;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<ILoginService, LoginServiceUI>();
+builder.Services.AddScoped<IApplicationService, ApplicationServiceUI>();
 
 var app = builder.Build();
 
@@ -18,6 +24,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

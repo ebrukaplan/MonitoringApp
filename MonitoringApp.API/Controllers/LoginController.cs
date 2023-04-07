@@ -8,6 +8,7 @@ namespace MonitoringApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LoginController : ControllerBase
     {
         private readonly ILogger<LoginController> _logger;
@@ -25,7 +26,7 @@ namespace MonitoringApp.API.Controllers
             var response = _loginService.Login(request);
             if (response.isSuccess == false)
             {
-                _logger.LogError(response.ErrorMessage);
+                //_logger.LogError(response.ErrorMessage);
                 return Unauthorized(response);
             }
             return Ok(response);
