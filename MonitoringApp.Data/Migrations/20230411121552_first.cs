@@ -3,14 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace MonitoringApp.Data.Migrations
 {
-    /// <inheritdoc />
-    public partial class ilk : Migration
+    public partial class first : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -91,44 +87,41 @@ namespace MonitoringApp.Data.Migrations
             migrationBuilder.InsertData(
                 table: "IntegrationTypes",
                 columns: new[] { "IntegrationTypeId", "CreatedDate", "IntegrationTypeDescription", "IntegrationTypeName" },
-                values: new object[] { 1, new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5954), "when the app has down, send an email", "email" });
+                values: new object[] { 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8332), "when the app has down, send an email", "email" });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "RoleId", "CreatedDate", "RoleName" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5854), "Standart" },
-                    { 2, new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5862), "Admin" }
-                });
+                values: new object[] { 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8210), "Standart" });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "RoleId", "CreatedDate", "RoleName" },
+                values: new object[] { 2, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8217), "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Applications",
                 columns: new[] { "ApplicationId", "ApplicationName", "ApplicationUrl", "CreatedBy", "CreatedDate", "IntegrationTypeId", "MonitorInterval" },
-                values: new object[] { 1, "Google", "www.google.com", 1, new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5969), 1, 30 });
+                values: new object[,]
+                {
+                    { 1, "Google", "https://www.google.com/", 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8344), 1, 30 },
+                    { 2, "İşbank", "https://www.isbank.com.tr/", 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8345), 1, 60 },
+                    { 3, "Akbank", "https://www.akbank.com/tr-tr/sayfalar/default.aspx", 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8346), 1, 60 },
+                    { 4, "Garanti Bankası", "https://www.garantibbva.com.tr/", 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8347), 1, 120 },
+                    { 5, "StackOverFlow", "https://stackoverflow.co/explore-teams/?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_nb_dsa_targeted_audiences_emea-dach&_bt=646019453177&_bk=&_bm=&_bn=g&gclid=EAIaIQobChMI46KLhaGh_gIVjplRCh18BQVdEAAYASAAEgLIA_D_BwE", 1, new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8348), 1, 20 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "UserId", "AccountName", "CreatedDate", "HashPassword", "RoleId" },
                 values: new object[,]
                 {
-                    { 1, "Ebru", new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5944), "123", 1 },
-                    { 2, "admin", new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5946), "123", 2 }
+                    { 1, "Ebru", new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8321), "PuB/hselpQNY0TYpY06RfnYVNjE=", 1 },
+                    { 2, "admin", new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8322), "PuB/hselpQNY0TYpY06RfnYVNjE=", 2 }
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Applications_IntegrationTypeId",
-                table: "Applications",
-                column: "IntegrationTypeId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_RoleId",
-                table: "Users",
-                column: "RoleId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

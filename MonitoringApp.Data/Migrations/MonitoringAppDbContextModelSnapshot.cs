@@ -17,10 +17,10 @@ namespace MonitoringApp.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "6.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("MonitoringApp.Model.Entities.Application", b =>
                 {
@@ -28,7 +28,7 @@ namespace MonitoringApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationId"), 1L, 1);
 
                     b.Property<string>("ApplicationName")
                         .IsRequired()
@@ -64,11 +64,51 @@ namespace MonitoringApp.Data.Migrations
                         {
                             ApplicationId = 1,
                             ApplicationName = "Google",
-                            ApplicationUrl = "www.google.com",
+                            ApplicationUrl = "https://www.google.com/",
                             CreatedBy = 1,
-                            CreatedDate = new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5969),
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8344),
                             IntegrationTypeId = 1,
                             MonitorInterval = 30
+                        },
+                        new
+                        {
+                            ApplicationId = 2,
+                            ApplicationName = "İşbank",
+                            ApplicationUrl = "https://www.isbank.com.tr/",
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8345),
+                            IntegrationTypeId = 1,
+                            MonitorInterval = 60
+                        },
+                        new
+                        {
+                            ApplicationId = 3,
+                            ApplicationName = "Akbank",
+                            ApplicationUrl = "https://www.akbank.com/tr-tr/sayfalar/default.aspx",
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8346),
+                            IntegrationTypeId = 1,
+                            MonitorInterval = 60
+                        },
+                        new
+                        {
+                            ApplicationId = 4,
+                            ApplicationName = "Garanti Bankası",
+                            ApplicationUrl = "https://www.garantibbva.com.tr/",
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8347),
+                            IntegrationTypeId = 1,
+                            MonitorInterval = 120
+                        },
+                        new
+                        {
+                            ApplicationId = 5,
+                            ApplicationName = "StackOverFlow",
+                            ApplicationUrl = "https://stackoverflow.co/explore-teams/?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_nb_dsa_targeted_audiences_emea-dach&_bt=646019453177&_bk=&_bm=&_bn=g&gclid=EAIaIQobChMI46KLhaGh_gIVjplRCh18BQVdEAAYASAAEgLIA_D_BwE",
+                            CreatedBy = 1,
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8348),
+                            IntegrationTypeId = 1,
+                            MonitorInterval = 20
                         });
                 });
 
@@ -78,7 +118,7 @@ namespace MonitoringApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IntegrationTypeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IntegrationTypeId"), 1L, 1);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -101,7 +141,7 @@ namespace MonitoringApp.Data.Migrations
                         new
                         {
                             IntegrationTypeId = 1,
-                            CreatedDate = new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5954),
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8332),
                             IntegrationTypeDescription = "when the app has down, send an email",
                             IntegrationTypeName = "email"
                         });
@@ -113,7 +153,7 @@ namespace MonitoringApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"), 1L, 1);
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -131,13 +171,13 @@ namespace MonitoringApp.Data.Migrations
                         new
                         {
                             RoleId = 1,
-                            CreatedDate = new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5854),
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8210),
                             RoleName = "Standart"
                         },
                         new
                         {
                             RoleId = 2,
-                            CreatedDate = new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5862),
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8217),
                             RoleName = "Admin"
                         });
                 });
@@ -148,7 +188,7 @@ namespace MonitoringApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
 
                     b.Property<string>("AccountName")
                         .IsRequired()
@@ -177,16 +217,16 @@ namespace MonitoringApp.Data.Migrations
                         {
                             UserId = 1,
                             AccountName = "Ebru",
-                            CreatedDate = new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5944),
-                            HashPassword = "123",
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8321),
+                            HashPassword = "PuB/hselpQNY0TYpY06RfnYVNjE=",
                             RoleId = 1
                         },
                         new
                         {
                             UserId = 2,
                             AccountName = "admin",
-                            CreatedDate = new DateTime(2023, 4, 7, 14, 44, 49, 685, DateTimeKind.Local).AddTicks(5946),
-                            HashPassword = "123",
+                            CreatedDate = new DateTime(2023, 4, 11, 15, 15, 52, 776, DateTimeKind.Local).AddTicks(8322),
+                            HashPassword = "PuB/hselpQNY0TYpY06RfnYVNjE=",
                             RoleId = 2
                         });
                 });

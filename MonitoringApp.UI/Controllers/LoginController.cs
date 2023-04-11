@@ -1,19 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using MonitoringApp.API.IServices;
+using MonitoringApp.Model.Entities;
 using MonitoringApp.Model.RequestResponseClasses;
+using System.Collections.Generic;
 
 namespace MonitoringApp.UI.Controllers
 {
     public class LoginController : Controller
     {
         private readonly ILoginService _loginService;
+      
 
         public LoginController(ILoginService loginService)
         {
             _loginService = loginService;
+            
         }
         public IActionResult Index()
         {
+         
 
 
 

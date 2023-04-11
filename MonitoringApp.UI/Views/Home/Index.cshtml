@@ -1,7 +1,10 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
+@using MonitoringApp.Model.Entities;
+@model List<Application>
 
 <div class="container px-5 pb-5">
     <div class="row gx-5 align-items-center">
@@ -16,6 +19,12 @@
                     <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">Add Application</a>
                 </div>
             </div>
+        </div>
+        <div class="col-xxl-12">
+            @foreach (var item in Model)
+            {
+                
+            }
         </div>
     </div>
 </div>
