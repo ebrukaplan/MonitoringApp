@@ -18,6 +18,7 @@ namespace MonitoringApp.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<IntegrationType> IntegrationTypes { get; set; }
+        public DbSet<ApplicationLog> ApplicationLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,15 +37,15 @@ namespace MonitoringApp.Data
                 );
 
             modelBuilder.Entity<IntegrationType>().HasData(
-                new IntegrationType { IntegrationTypeId = 1, IntegrationTypeName = "email", CreatedDate = DateTime.Now, IntegrationTypeDescription = "when the app has down, send an email" }
+                new IntegrationType { IntegrationTypeId = 1, IntegrationTypeName = "email", CreatedDate = DateTime.Now, IntegrationTypeDescription = "when the app has down, send an email to notifyList" }
                 );
 
             modelBuilder.Entity<Application>().HasData(
-                new Application { ApplicationId = 1, ApplicationName = "Google", ApplicationUrl = "https://www.google.com/", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 30 },
-                new Application { ApplicationId = 2, ApplicationName = "İşbank", ApplicationUrl = "https://www.isbank.com.tr/", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 60 },
-                new Application { ApplicationId = 3, ApplicationName = "Akbank", ApplicationUrl = "https://www.akbank.com/tr-tr/sayfalar/default.aspx", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 60 },
-                new Application { ApplicationId = 4, ApplicationName = "Garanti Bankası", ApplicationUrl = "https://www.garantibbva.com.tr/", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 120 },
-                new Application { ApplicationId = 5, ApplicationName = "StackOverFlow", ApplicationUrl = "https://stackoverflow.co/explore-teams/?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_nb_dsa_targeted_audiences_emea-dach&_bt=646019453177&_bk=&_bm=&_bn=g&gclid=EAIaIQobChMI46KLhaGh_gIVjplRCh18BQVdEAAYASAAEgLIA_D_BwE", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, MonitorInterval = 20 }
+                new Application { ApplicationId = 1, ApplicationName = "Google", ApplicationUrl = "https://www.google.com/", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1,isDown=false, isNotified=false, NotifyList="", MonitorInterval = 30 },
+                new Application { ApplicationId = 2, ApplicationName = "İşbank", ApplicationUrl = "https://www.isbank.com.tr/", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, isDown = false, isNotified = false, NotifyList = "", MonitorInterval = 60 },
+                new Application { ApplicationId = 3, ApplicationName = "Akbank", ApplicationUrl = "https://www.akbank.com/tr-tr/sayfalar/default.aspx", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, isDown = false, isNotified = false, NotifyList = "", MonitorInterval = 60 },
+                new Application { ApplicationId = 4, ApplicationName = "Garanti Bankası", ApplicationUrl = "https://www.garantibbva.com.tr/", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, isDown = false, isNotified = false, NotifyList = "", MonitorInterval = 120 },
+                new Application { ApplicationId = 5, ApplicationName = "StackOverFlow", ApplicationUrl = "https://stackoverflow.co/explore-teams/?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_nb_dsa_targeted_audiences_emea-dach&_bt=646019453177&_bk=&_bm=&_bn=g&gclid=EAIaIQobChMI46KLhaGh_gIVjplRCh18BQVdEAAYASAAEgLIA_D_BwE", CreatedDate = DateTime.Now, CreatedBy = 1, IntegrationTypeId = 1, isDown = false, isNotified = false, NotifyList = "", MonitorInterval = 20 }
                 );
         }
 

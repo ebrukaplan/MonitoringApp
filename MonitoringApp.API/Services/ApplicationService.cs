@@ -17,5 +17,16 @@ namespace MonitoringApp.API.Services
         {
             return _dbContext.Applications.ToList();
         }
+
+        public Application? GetApplication(int ApplicationId)
+        {
+            return _dbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId && a.isDown == false);
+        }
+
+        public bool UpdateApplication(Application app)
+        {
+            _dbContext.Update(app);
+            return _dbContext.SaveChanges() > 0 ? true : false;
+        }
     }
 }

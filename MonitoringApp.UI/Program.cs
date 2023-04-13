@@ -1,4 +1,6 @@
 using MonitoringApp.API.IServices;
+using MonitoringApp.UI.InterfaceClasses;
+using MonitoringApp.UI.Interfaces;
 using MonitoringApp.UI.ServiceUI;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<ILoginService, LoginServiceUI>();
 builder.Services.AddScoped<IApplicationService, ApplicationServiceUI>();
+builder.Services.AddScoped<INotify, Notify>();
 
 var app = builder.Build();
 

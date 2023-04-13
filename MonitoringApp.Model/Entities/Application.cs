@@ -25,6 +25,18 @@ namespace MonitoringApp.Model.Entities
 
         [Required]
         public int IntegrationTypeId { get; set; }
+
+        [Required]
+        [MaxLength(2500)]
+        public string NotifyList { get; set; }
+
+        [Required]
+        public bool isDown { get; set; }
+
+        [Required]
+        public bool isNotified { get; set; }
+
+       
         public int CreatedBy { get; set; }
 
         public virtual IntegrationType IntegrationType { get; set; }
