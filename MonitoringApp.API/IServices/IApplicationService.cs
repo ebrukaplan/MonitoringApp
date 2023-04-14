@@ -1,4 +1,5 @@
-﻿using MonitoringApp.Model.Entities;
+﻿using MonitoringApp.API.ReqResponseClasses;
+using MonitoringApp.Model.Entities;
 using MonitoringApp.Model.RequestResponseClasses;
 
 namespace MonitoringApp.API.IServices
@@ -8,7 +9,7 @@ namespace MonitoringApp.API.IServices
         List<Application> GetApplications();
         Application? GetApplication(int ApplicationId);
 
-        bool UpdateApplication(Application app);
+        bool UpdateApplication(ApplicationRequest app);
 
 
     }

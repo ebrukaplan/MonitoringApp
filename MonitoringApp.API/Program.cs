@@ -48,6 +48,8 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IApplicationLogService, ApplicationLogService>();
+
 
 var app = builder.Build();
 

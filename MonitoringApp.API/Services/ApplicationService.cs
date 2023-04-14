@@ -1,4 +1,5 @@
 ﻿using MonitoringApp.API.IServices;
+using MonitoringApp.API.ReqResponseClasses;
 using MonitoringApp.Data;
 using MonitoringApp.Model.Entities;
 
@@ -23,10 +24,18 @@ namespace MonitoringApp.API.Services
             return _dbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId && a.isDown == false);
         }
 
-        public bool UpdateApplication(Application app)
+        public bool UpdateApplication(ApplicationRequest app)
         {
-            _dbContext.Update(app);
-            return _dbContext.SaveChanges() > 0 ? true : false;
+            Application? appEntity = _dbContext.Applications.FirstOrDefault(a => a.ApplicationId == app.ApplicationId);
+            if(appEntity!=null)
+            {
+                appEntity.isDown = app.isDown;
+                appEntity.isNotified=app.isNotified;
+                _dbContext.Update(appEntity);
+                return _dbContext.SaveChanges() > 0 ? true : false;
+            }
+
+            return false;
         }
     }
 }

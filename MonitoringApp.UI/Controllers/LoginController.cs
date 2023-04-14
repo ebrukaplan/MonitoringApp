@@ -19,10 +19,6 @@ namespace MonitoringApp.UI.Controllers
         }
         public IActionResult Index()
         {
-         
-
-
-
             return View();
         }
 
