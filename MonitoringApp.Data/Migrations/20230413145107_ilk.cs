@@ -130,7 +130,7 @@ namespace MonitoringApp.Data.Migrations
                 {
                     { 1, "Google", "https://www.google.com/", 1, new DateTime(2023, 4, 13, 17, 51, 6, 898, DateTimeKind.Local).AddTicks(162), 1, 30, "", false, false },
                     { 2, "İşbank", "https://www.isbank.com.tr/", 1, new DateTime(2023, 4, 13, 17, 51, 6, 898, DateTimeKind.Local).AddTicks(164), 1, 60, "", false, false },
-                    { 3, "Akbank", "https://www.akbank.com/tr-tr/sayfalar/default.aspx", 1, new DateTime(2023, 4, 13, 17, 51, 6, 898, DateTimeKind.Local).AddTicks(165), 1, 60, "", false, false },
+                    { 3, "Edevlet", "https://www.turkiye.gov.tr/", 1, new DateTime(2023, 4, 13, 17, 51, 6, 898, DateTimeKind.Local).AddTicks(165), 1, 60, "", false, false },
                     { 4, "Garanti Bankası", "https://www.garantibbva.com.tr/", 1, new DateTime(2023, 4, 13, 17, 51, 6, 898, DateTimeKind.Local).AddTicks(166), 1, 120, "", false, false },
                     { 5, "StackOverFlow", "https://stackoverflow.co/explore-teams/?utm_source=adwords&utm_medium=ppc&utm_campaign=kb_teams_search_nb_dsa_targeted_audiences_emea-dach&_bt=646019453177&_bk=&_bm=&_bn=g&gclid=EAIaIQobChMI46KLhaGh_gIVjplRCh18BQVdEAAYASAAEgLIA_D_BwE", 1, new DateTime(2023, 4, 13, 17, 51, 6, 898, DateTimeKind.Local).AddTicks(167), 1, 20, "", false, false }
                 });
